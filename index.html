@@ -2,50 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My 3D Portfolio</title>
-  <style>
-    body { margin: 0; background: #111; color: #fff; font-family: Arial, sans-serif; }
-    canvas { display: block; }
-    .overlay {
-      position: absolute; top: 20px; left: 20px;
-      background: rgba(0,0,0,0.6); padding: 20px; border-radius: 10px;
-    }
-  </style>
+  <title>Qasim Ali - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="overlay">
-    <h1>Your Name</h1>
-    <p>About Me: Passionate developer...</p>
-    <p>Skills: HTML, CSS, JS, Three.js</p>
-    <p>Experience: ...</p>
-    <p>Education: ...</p>
-    <p>Contact: email@example.com</p>
+  <div class="container">
+    <div class="card">
+      <div class="card-front">
+        <img src="your-photo.jpg" alt="Qasim Ali" class="profile-pic">
+        <h1>Qasim Ali</h1>
+        <p>Computer Scientist | AI & Web Developer</p>
+      </div>
+      <div class="card-back">
+        <h2>Profile</h2>
+        <p>Versatile and results-driven Computer Scientist with expertise in AI, databases, and full-stack development.</p>
+
+        <h2>Skills</h2>
+        <ul>
+          <li>Python, JavaScript, C/C++</li>
+          <li>React.js, TensorFlow, PyTorch</li>
+          <li>MySQL, Firebase, Git/GitHub</li>
+        </ul>
+
+        <h2>Projects</h2>
+        <p>Car Parking System, Tetris Game (NASM), Restaurant Management System, Stock Prediction (Python), FastPOS.</p>
+
+        <h2>Education</h2>
+        <p>Bachelor of Science in Computer Science - FAST NUCES</p>
+
+        <h2>Contact</h2>
+        <p>Email: qasimali.344623@gmail.com</p>
+        <p>Phone: +92 344623713</p>
+      </div>
+    </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script>
-    // Basic 3D scene
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-
-    // 3D rotating cube with your picture as texture
-    const geometry = new THREE.BoxGeometry();
-    const texture = new THREE.TextureLoader().load('your-picture.jpg');
-    const material = new THREE.MeshBasicMaterial({ map: texture });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    camera.position.z = 3;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    }
-    animate();
-  </script>
 </body>
 </html>
