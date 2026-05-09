@@ -191,6 +191,18 @@ footer span{color:var(--gold)}
   .nav-links{gap:1.8rem}
   .proj-grid{grid-template-columns:1fr}
 }
+/* ===== TOAST NOTIFICATION ===== */
+.toast{position:fixed;bottom:2.5rem;right:2.5rem;z-index:9999;padding:1rem 1.6rem;border-radius:10px;font-family:'Fira Code',monospace;font-size:0.8rem;letter-spacing:0.06em;display:flex;align-items:center;gap:0.7rem;transform:translateY(100px);opacity:0;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);pointer-events:none;max-width:340px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{background:linear-gradient(135deg,#0f2e1a,#0a2010);border:1px solid rgba(52,211,153,0.4);color:#6ee7b7}
+.toast.error{background:linear-gradient(135deg,#2e0f0f,#200a0a);border:1px solid rgba(255,77,109,0.4);color:#fca5a5}
+.toast-icon{font-size:1.1rem;flex-shrink:0}
+.toast-msg{line-height:1.5}
+
+/* Loading spinner on button */
+.fsub.loading{pointer-events:none;opacity:0.7}
+.fsub.loading::after{content:'';display:inline-block;width:12px;height:12px;border:2px solid var(--ink);border-top-color:transparent;border-radius:50%;margin-left:0.6rem;animation:spin 0.7s linear infinite;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -198,6 +210,12 @@ footer span{color:var(--gold)}
 <canvas id="three-bg"></canvas>
 <div class="cur" id="cur"><div class="cur-dot"></div></div>
 <div class="cur-ring" id="curRing"></div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toast-icon"></span>
+  <span class="toast-msg" id="toast-msg"></span>
+</div>
 
 <nav id="navbar">
   <div class="nav-logo">QA_</div>
@@ -218,7 +236,6 @@ footer span{color:var(--gold)}
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-chip"><span class="dot"></span> Available for Opportunities</div>
     <h1 class="big-name"><span class="n1">Qasim</span><span class="n2">Ali</span></h1>
     <p class="hero-roles">Computer Scientist <span>·</span> AI Engineer <span>·</span> Full-Stack Developer</p>
     <p class="hero-desc">Versatile results-driven Computer Scientist with a strong foundation in software development, artificial intelligence, and databases. Passionate about solving complex problems through algorithmic thinking.</p>
@@ -403,11 +420,11 @@ footer span{color:var(--gold)}
     </div>
     <div class="cform reveal">
       <div class="cform-title">Send a Message</div>
-      <div class="fgrp"><label>Your Name</label><input type="text" placeholder="John Doe"></div>
-      <div class="fgrp"><label>Your Email</label><input type="email" placeholder="hello@example.com"></div>
-      <div class="fgrp"><label>Subject</label><input type="text" placeholder="Project Collaboration"></div>
-      <div class="fgrp"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
-      <button class="fsub" onclick="handleSubmit()">SEND MESSAGE →</button>
+      <div class="fgrp"><label>Your Name</label><input id="from_name" type="text" placeholder="John Doe"></div>
+      <div class="fgrp"><label>Your Email</label><input id="reply_to" type="email" placeholder="hello@example.com"></div>
+      <div class="fgrp"><label>Subject</label><input id="subject" type="text" placeholder="Project Collaboration"></div>
+      <div class="fgrp"><label>Message</label><textarea id="message" placeholder="Tell me about your project..."></textarea></div>
+      <button class="fsub" id="sendBtn" onclick="handleSubmit()">SEND MESSAGE →</button>
     </div>
   </div>
 </section>
@@ -416,6 +433,7 @@ footer span{color:var(--gold)}
   <p>Crafted with ⚡ by <span>Qasim Ali</span> &nbsp;·&nbsp; © 2025 &nbsp;·&nbsp; Peshawar, Pakistan</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 // ============================================================
@@ -634,7 +652,83 @@ document.querySelectorAll('.pcard').forEach(card => {
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 
-function handleSubmit() { alert('Message sent! Connect a backend to enable this.'); }
+// ============================================================
+//  EMAILJS — sends form to qasimali.344623@gmail.com
+//  Steps to activate (one-time setup, 5 minutes):
+//  1. Go to https://www.emailjs.com and create a free account
+//  2. Add an Email Service (Gmail) → copy your SERVICE ID
+//  3. Create an Email Template → copy your TEMPLATE ID
+//     Template variables to use: {{from_name}}, {{reply_to}}, {{subject}}, {{message}}
+//  4. Go to Account → API Keys → copy your PUBLIC KEY
+//  5. Replace the three placeholder strings below with your real IDs
+// ============================================================
+const EMAILJS_SERVICE_ID  = 'service_p0howno';
+const EMAILJS_TEMPLATE_ID = 'template_zixuf2j';
+const EMAILJS_PUBLIC_KEY  = 'HVVPkD4KF7HjGRkSp';
+
+function showToast(type, msg) {
+  const t = document.getElementById('toast');
+  const icon = document.getElementById('toast-icon');
+  const txt  = document.getElementById('toast-msg');
+  t.className = `toast ${type}`;
+  icon.textContent = type === 'success' ? '✅' : '❌';
+  txt.textContent  = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 5000);
+}
+
+function handleSubmit() {
+  const name    = document.getElementById('from_name').value.trim();
+  const email   = document.getElementById('reply_to').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const btn     = document.getElementById('sendBtn');
+
+  // Basic validation
+  if (!name || !email || !message) {
+    showToast('error', 'Please fill in Name, Email and Message.');
+    return;
+  }
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRx.test(email)) {
+    showToast('error', 'Please enter a valid email address.');
+    return;
+  }
+
+  // Check keys are configured
+  if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+    showToast('error', 'EmailJS not configured yet — see code comments above handleSubmit() for setup instructions.');
+    return;
+  }
+
+  btn.textContent = 'SENDING...';
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+    from_name: name,
+    reply_to:  email,
+    subject:   subject || 'Portfolio Contact',
+    message:   message
+  }, EMAILJS_PUBLIC_KEY)
+  .then(() => {
+    showToast('success', 'Message sent! I\'ll get back to you soon 🚀');
+    document.getElementById('from_name').value = '';
+    document.getElementById('reply_to').value  = '';
+    document.getElementById('subject').value   = '';
+    document.getElementById('message').value   = '';
+    btn.textContent = 'SEND MESSAGE →';
+    btn.classList.remove('loading');
+    btn.disabled = false;
+  })
+  .catch(err => {
+    console.error('EmailJS error:', err);
+    showToast('error', 'Failed to send. Check your EmailJS configuration.');
+    btn.textContent = 'SEND MESSAGE →';
+    btn.classList.remove('loading');
+    btn.disabled = false;
+  });
+}
 </script>
 </body>
 </html>
