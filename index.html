@@ -273,6 +273,51 @@ footer span{color:var(--gold)}
 
 <link rel="stylesheet" href="style.css">
 
+<style id="desktop-split-hero-override">
+/* Ensure the first desktop viewport presents Qasim's name left and his photo right.
+   This deliberately follows the older inline CSS so the split layout wins the cascade. */
+@media (min-width: 901px) {
+  #hero { display:block !important; min-height:100svh; padding:clamp(6.8rem,9vh,7.8rem) clamp(1.4rem,5vw,5rem) 3.8rem !important; text-align:left !important; }
+  #hero .hero-shell {
+    display:grid !important;
+    grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr) !important;
+    align-items:center !important;
+    gap:clamp(1.6rem,3.4vw,3.8rem) !important;
+    width:min(100%,1460px) !important;
+    min-height:calc(100svh - 11.5rem) !important;
+    margin-inline:auto !important;
+  }
+  #hero .hero-copy { grid-column:1; grid-row:1; width:100% !important; max-width:none !important; min-width:0; padding:.5rem 0 !important; text-align:left !important; }
+  #hero .hero-intro,#hero .hero-roles,#hero .hero-desc { text-align:left !important; }
+  #hero h1.big-name { width:100%; text-align:left !important; font-size:clamp(4.7rem,8.8vw,8.6rem) !important; line-height:.82 !important; letter-spacing:-.025em !important; }
+  #hero .hero-desc { max-width:590px !important; margin-left:0 !important; margin-right:0 !important; }
+  #hero .hero-ctas { justify-content:flex-start !important; }
+  #hero .hero-stats { display:flex !important; justify-content:flex-start !important; flex-wrap:wrap; gap:clamp(1.2rem,2.7vw,2.8rem) !important; }
+  #hero .hero-visual { display:block !important; grid-column:2; grid-row:1; align-self:center !important; justify-self:end !important; width:100% !important; max-width:475px !important; min-width:0; margin:0 !important; }
+  #hero .portrait-stage-photo { width:100% !important; height:clamp(420px,64vh,570px) !important; min-height:420px !important; aspect-ratio:4 / 5 !important; }
+  #hero .portrait-photo { object-fit:cover !important; object-position:center 16% !important; }
+}
+@media (min-width:901px) and (max-height:740px) {
+  #hero { padding-top:6.2rem !important; padding-bottom:2.5rem !important; }
+  #hero .hero-shell { min-height:calc(100svh - 9rem) !important; }
+  #hero h1.big-name { font-size:clamp(4.4rem,8.1vw,7.3rem) !important; }
+  #hero .hero-chip { margin-bottom:1.1rem !important; }
+  #hero .hero-roles { margin-top:1rem !important; margin-bottom:.7rem !important; }
+  #hero .hero-desc { line-height:1.7 !important; margin-bottom:1.2rem !important; }
+  #hero .hero-stats { margin-top:1.6rem !important; padding-top:.9rem !important; }
+  #hero .portrait-stage-photo { height:clamp(390px,63vh,480px) !important; min-height:390px !important; }
+}
+@media (max-width:900px) {
+  #hero { display:block !important; text-align:left !important; }
+  #hero .hero-shell { display:grid !important; grid-template-columns:minmax(0,1fr) !important; gap:1.8rem !important; width:min(100%,760px) !important; min-height:auto !important; }
+  #hero .hero-copy { grid-column:1; grid-row:1; width:100% !important; max-width:100% !important; text-align:left !important; }
+  #hero .hero-visual { grid-column:1; grid-row:2; display:block !important; width:100% !important; max-width:540px !important; justify-self:center !important; }
+  #hero h1.big-name { text-align:left !important; }
+  #hero .hero-stats { display:flex !important; flex-wrap:wrap; }
+}
+</style>
+
+
 <style id="portfolio-construction-styles">
 /* The opening sequence makes the page feel like it is being drawn into existence. */
 .portfolio-build { position:fixed; inset:0; z-index:10000; display:grid; place-items:center; overflow:hidden; color:#f5f7fb; background:radial-gradient(ellipse at 56% 48%,rgba(18,50,70,.38),transparent 47%),linear-gradient(140deg,#06080d 0%,#0a0e16 56%,#08090f 100%); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .85s ease,visibility .85s ease; }
