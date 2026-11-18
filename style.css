@@ -255,3 +255,11 @@ footer span { color:#ff536f; }
 
 /* Keep the custom pointer hidden until the visitor moves the mouse. */
 .cur, .cur-ring { opacity:0; transition:opacity .18s ease; }
+
+
+/* Desktop first screen: explicit left copy + right supplied portrait. */
+@media (min-width:901px) {
+  #hero .hero-shell { grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr) !important; }
+  #hero .hero-copy { grid-column:1; grid-row:1; }
+  #hero .hero-visual { grid-column:2; grid-row:1; }
+}
