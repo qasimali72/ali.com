@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Qasim Ali — Computer Scientist</title>
+<title>Qasim Ali — Developer & AI/ML Builder</title>
+<meta name="description" content="Qasim Ali — Computer Science student and developer building practical software, web experiences and AI/ML projects.">
+<meta property="og:title" content="Qasim Ali — Developer & AI/ML Builder">
+<meta property="og:description" content="Explore Qasim Ali’s profile, skills, projects and work in software development and AI/ML.">
+<meta property="og:image" content="portrait-qasim.webp">
+<meta name="theme-color" content="#07090e">
+<link rel="preload" as="image" href="portrait-qasim.webp" fetchpriority="high">
+<script>document.documentElement.classList.add("has-js");</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -204,9 +212,169 @@ footer span{color:var(--gold)}
 .fsub.loading::after{content:'';display:inline-block;width:12px;height:12px;border:2px solid var(--ink);border-top-color:transparent;border-radius:50%;margin-left:0.6rem;animation:spin 0.7s linear infinite;vertical-align:middle}
 @keyframes spin{to{transform:rotate(360deg)}}
 </style>
+
+<style id="sequence-and-arrow-trail-styles">
+/* One-by-one cinematic entrance: QA mark, Home, navigation, then the hero. */
+@keyframes qaMarkIn {
+  0% { opacity:0; transform:translateY(-16px) scale(.82); filter:blur(8px); }
+  70% { opacity:1; transform:translateY(3px) scale(1.04); filter:blur(0); }
+  100% { opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
+}
+@keyframes navItemIn {
+  from { opacity:0; transform:translateY(-12px); filter:blur(5px); }
+  to { opacity:1; transform:translateY(0); filter:blur(0); }
+}
+@keyframes introLift {
+  from { opacity:0; transform:translateY(24px); filter:blur(5px); }
+  to { opacity:1; transform:translateY(0); filter:blur(0); }
+}
+#navbar .nav-logo { animation:qaMarkIn .85s cubic-bezier(.2,.8,.2,1) .12s both !important; }
+#navbar .nav-links li { opacity:0; animation:navItemIn .62s cubic-bezier(.2,.8,.2,1) both; }
+#navbar .nav-links li:nth-child(1) { animation-delay:.48s; }
+#navbar .nav-links li:nth-child(2) { animation-delay:.66s; }
+#navbar .nav-links li:nth-child(3) { animation-delay:.84s; }
+#navbar .nav-links li:nth-child(4) { animation-delay:1.02s; }
+#navbar .nav-links li:nth-child(5) { animation-delay:1.20s; }
+#navbar .nav-links li:nth-child(6) { animation-delay:1.38s; }
+#hero .hero-chip { animation-delay:1.10s !important; }
+#hero .hero-intro { animation-delay:1.26s !important; }
+#hero h1.big-name { animation-delay:1.42s !important; }
+#hero .hero-roles { animation: introLift .8s cubic-bezier(.2,.8,.2,1) 1.62s both !important; }
+#hero .hero-desc { animation-delay:1.80s !important; }
+#hero .hero-ctas { animation-delay:1.98s !important; }
+#hero .hero-stats { animation-delay:2.16s !important; }
+#hero .hero-visual { animation:introLift .95s cubic-bezier(.2,.8,.2,1) 1.48s both; }
+/* About content builds in order once the visitor scrolls to it. */
+#about .about-grid > .reveal.visible > .about-num { animation:introLift .55s ease .02s both; }
+#about .about-grid > .reveal.visible > .about-tag { animation:introLift .58s ease .16s both; }
+#about .about-grid > .reveal.visible > .about-h2 { animation:introLift .62s ease .30s both; }
+#about .about-grid > .reveal.visible > .about-p:nth-of-type(1) { animation:introLift .62s ease .48s both; }
+#about .about-grid > .reveal.visible > .about-p:nth-of-type(2) { animation:introLift .62s ease .64s both; }
+#about .about-grid > .reveal.visible > .about-p:nth-of-type(3) { animation:introLift .62s ease .80s both; }
+#about .about-grid > .reveal.visible > .info-grid { animation:introLift .68s ease .98s both; }
+#about .about-grid > .reveal.visible > .lang-row { animation:introLift .68s ease 1.12s both; }
+/* Twenty arrow-shaped cursor echoes follow the pointer in sequence. */
+.cursor-arrow {
+  position:fixed; left:0; top:0; width:17px; height:21px; z-index:9997;
+  pointer-events:none; opacity:0; color:var(--arrow-color,#18c9ff);
+  transform:translate3d(-100px,-100px,0); transform-origin:3px 3px;
+  will-change:transform,opacity; filter:drop-shadow(0 0 5px currentColor);
+}
+.cursor-arrow svg { display:block; width:100%; height:100%; overflow:visible; }
+@media (hover:none), (pointer:coarse) { .cursor-arrow { display:none !important; } }
+@media (prefers-reduced-motion:reduce) {
+  #navbar .nav-logo,#navbar .nav-links li,#hero .hero-visual,
+  #hero .hero-roles,#about .about-grid > .reveal.visible > * {
+    animation:none !important; opacity:1 !important; filter:none !important; transform:none !important;
+  }
+  .cursor-arrow { display:none !important; }
+}
+</style>
+
+<link rel="stylesheet" href="style.css">
+
+<style id="portfolio-construction-styles">
+/* The opening sequence makes the page feel like it is being drawn into existence. */
+.portfolio-build { position:fixed; inset:0; z-index:10000; display:grid; place-items:center; overflow:hidden; color:#f5f7fb; background:radial-gradient(ellipse at 56% 48%,rgba(18,50,70,.38),transparent 47%),linear-gradient(140deg,#06080d 0%,#0a0e16 56%,#08090f 100%); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .85s ease,visibility .85s ease; }
+html.has-js .portfolio-build { opacity:1; visibility:visible; pointer-events:auto; }
+.portfolio-build.complete, html.has-js .portfolio-build.complete { opacity:0; visibility:hidden; pointer-events:none; }
+.build-grid { position:absolute; inset:0; opacity:.35; background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px); background-size:54px 54px; mask-image:radial-gradient(ellipse at center,#000 22%,transparent 82%); }
+.build-blueprint { position:absolute; inset:0; width:100%; height:100%; opacity:.72; }
+.blueprint-path { fill:none; stroke-width:1.15; stroke-linecap:round; stroke-dasharray:1400; stroke-dashoffset:1400; }
+.path-a { stroke:rgba(255,36,75,.72); animation:blueprintDraw 3.3s ease .2s forwards; }
+.path-b { stroke:rgba(24,201,255,.62); animation:blueprintDraw 3.3s ease .6s forwards; }
+.path-c { stroke:rgba(255,255,255,.24); animation:blueprintDraw 3s ease .9s forwards; }
+.path-d { stroke:rgba(24,201,255,.6); animation:blueprintDraw 2.6s ease 1.2s forwards; }
+@keyframes blueprintDraw { to { stroke-dashoffset:0; } }
+.build-topline,.build-foot { position:absolute; left:clamp(1.2rem,5vw,5rem); right:clamp(1.2rem,5vw,5rem); display:flex; justify-content:space-between; align-items:center; z-index:3; font-family:'Fira Code',monospace; font-size:.58rem; letter-spacing:.2em; color:rgba(218,229,241,.55); }
+.build-topline { top:clamp(1.2rem,4vh,2.6rem); }
+.build-foot { bottom:clamp(1.2rem,4vh,2.6rem); }
+.build-brand { color:#f5f7fb; font-family:'Bebas Neue',sans-serif; font-size:2.15rem; letter-spacing:.12em; }
+.build-brand span { color:#ff244b; }
+.build-center { position:relative; z-index:4; width:min(680px,82vw); text-align:center; transform:translateY(-1vh); }
+.build-kicker { display:block; margin-bottom:1.2rem; color:#18c9ff; font: .62rem 'Fira Code',monospace; letter-spacing:.25em; }
+.build-name { display:flex; justify-content:center; gap:.2em; font-family:'Bebas Neue',sans-serif; font-size:clamp(4.8rem,14vw,10rem); line-height:.82; letter-spacing:-.025em; }
+.build-name span { color:#f5f7fb; animation:buildNameIn .75s cubic-bezier(.16,1,.3,1) .25s both; }
+.build-name em { font-style:normal; color:#ff244b; animation:buildNameIn .75s cubic-bezier(.16,1,.3,1) .48s both; }
+@keyframes buildNameIn { from { opacity:0; transform:translateY(22px) skewY(4deg); clip-path:inset(100% 0 0); } to { opacity:1; transform:translateY(0) skewY(0); clip-path:inset(0); } }
+.build-progress { height:2px; margin:2.2rem auto .8rem; max-width:420px; background:rgba(255,255,255,.13); overflow:hidden; }
+.build-progress span { display:block; width:0; height:100%; background:linear-gradient(90deg,#ff244b,#18c9ff); box-shadow:0 0 16px rgba(24,201,255,.7); transition:width .35s ease; }
+.build-status-row { max-width:420px; margin:0 auto; display:flex; justify-content:space-between; color:#8d9bad; font: .58rem 'Fira Code',monospace; letter-spacing:.14em; }
+.build-status-row span:last-child { color:#ff526f; }
+.build-note { margin-top:1.7rem; color:rgba(218,229,241,.45); font-size:.82rem; letter-spacing:.04em; }
+.build-skip { position:absolute; z-index:10; right:clamp(1.2rem,5vw,5rem); bottom:clamp(3.2rem,8vh,5rem); padding:.7rem 1rem; border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.035); color:#f5f7fb; font: .58rem 'Fira Code',monospace; letter-spacing:.16em; cursor:pointer; transition:all .25s ease; }
+.build-skip:hover { border-color:#18c9ff; color:#18c9ff; background:rgba(24,201,255,.08); }
+.build-arrows { position:absolute; inset:0; z-index:6; pointer-events:none; }
+.build-arrow { position:absolute; left:0; top:0; width:15px; height:19px; color:var(--build-arrow-color); opacity:0; filter:drop-shadow(0 0 5px currentColor); will-change:transform,opacity; }
+.build-arrow svg { display:block; width:100%; height:100%; }
+html.has-js .build-part { opacity:0 !important; transform:translate3d(0,18px,0) scale(.985) !important; filter:blur(7px) !important; animation:none !important; transition:opacity .55s ease,transform .65s cubic-bezier(.2,.8,.2,1),filter .65s ease !important; }
+html.has-js .build-part.is-built { opacity:1 !important; transform:translate3d(0,0,0) scale(1) !important; filter:blur(0) !important; }
+.hero-visual.build-part { transform:translate3d(0,24px,0) scale(.97) !important; }
+.hero-visual.build-part.is-built { transform:translate3d(0,0,0) scale(1) !important; }
+.portrait-stage-photo { aspect-ratio:4 / 5; height:clamp(430px,61vh,640px); min-height:430px; background:#0b111b; border:1px solid rgba(255,255,255,.22); }
+.portrait-photo { position:absolute; inset:0; z-index:1; width:100%; height:100%; object-fit:cover; object-position:center 18%; transform:scale(1.13); filter:saturate(.78) contrast(1.06) brightness(.9); transition:transform 1.6s cubic-bezier(.2,.8,.2,1),filter 1.2s ease; }
+.hero-visual.is-built .portrait-photo { transform:scale(1); filter:saturate(.9) contrast(1.06) brightness(.94); }
+.portrait-photo-shade { position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(180deg,rgba(5,9,16,.05),rgba(5,9,16,.05) 48%,rgba(5,9,16,.48)),linear-gradient(110deg,rgba(255,36,75,.13),transparent 42%,rgba(24,201,255,.12)); mix-blend-mode:multiply; }
+.portrait-stage-photo .portrait-grid { z-index:3; opacity:.23; pointer-events:none; }
+.portrait-stage-photo .portrait-halo { z-index:3; pointer-events:none; mix-blend-mode:screen; }
+.portrait-stage-photo .portrait-orbit { z-index:4; pointer-events:none; }
+.portrait-stage-photo .portrait-mark,.portrait-stage-photo .portrait-side { z-index:5; text-shadow:0 2px 12px rgba(0,0,0,.8); }
+.portrait-corner { position:absolute; z-index:6; width:42px; height:42px; border-color:#18c9ff; border-style:solid; opacity:.8; }
+.corner-tl { top:12px; left:12px; border-width:1px 0 0 1px; }
+.corner-br { right:12px; bottom:12px; border-width:0 1px 1px 0; border-color:#ff244b; }
+/* Section elements assemble in staggered order as each section enters view. */
+.reveal { position:relative; }
+.reveal::after { content:''; position:absolute; left:0; bottom:-10px; height:1px; width:0; opacity:.7; background:linear-gradient(90deg,#ff244b,#18c9ff,transparent); transition:width .9s cubic-bezier(.2,.8,.2,1) .12s; pointer-events:none; }
+.reveal.visible::after { width:min(100%,360px); }
+.reveal.visible .about-num,.reveal.visible .about-tag,.reveal.visible .about-h2,.reveal.visible .about-p,.reveal.visible .info-box,.reveal.visible .lang-pill,.reveal.visible .skcat,.reveal.visible .pcard,.reveal.visible .edu-item,.reveal.visible .ccard,.reveal.visible .clink { animation:contentAssemble .62s cubic-bezier(.2,.8,.2,1) both; }
+.reveal.visible .about-num { animation-delay:.04s; }
+.reveal.visible .about-tag { animation-delay:.14s; }
+.reveal.visible .about-h2 { animation-delay:.24s; }
+.reveal.visible .about-p:nth-of-type(1) { animation-delay:.34s; }
+.reveal.visible .about-p:nth-of-type(2) { animation-delay:.45s; }
+.reveal.visible .about-p:nth-of-type(3) { animation-delay:.56s; }
+.reveal.visible .info-box:nth-child(1) { animation-delay:.68s; }
+.reveal.visible .info-box:nth-child(2) { animation-delay:.78s; }
+.reveal.visible .info-box:nth-child(3) { animation-delay:.88s; }
+.reveal.visible .info-box:nth-child(4) { animation-delay:.98s; }
+@keyframes contentAssemble { from { opacity:0; transform:translate3d(0,18px,0); filter:blur(4px); } to { opacity:1; transform:translate3d(0,0,0); filter:blur(0); } }
+@media (max-width:900px) { .portrait-stage-photo { height:clamp(420px,72vh,620px); max-width:540px; margin-inline:auto; } .build-name { font-size:clamp(4.2rem,16vw,7rem); } .build-foot { font-size:.5rem; } }
+@media (max-width:600px) { .portrait-stage-photo { height:clamp(390px,72vh,520px); min-height:390px; } .portrait-side { display:none; } .build-topline,.build-foot { letter-spacing:.1em; font-size:.48rem; } .build-note { font-size:.72rem; } .build-name { font-size:clamp(3.7rem,18vw,6rem); } .build-skip { bottom:2rem; } }
+@media (prefers-reduced-motion:reduce) { html.has-js .portfolio-build { display:none; } html.has-js .build-part { opacity:1 !important; transform:none !important; filter:none !important; } .blueprint-path { animation:none !important; stroke-dashoffset:0; } .reveal::after { transition:none; width:100%; } }
+</style>
+
+<style id="final-mobile-layout-fix">
+@media (max-width: 900px) { .portrait-stage-photo { width:100%; height:auto; aspect-ratio:4 / 5; min-height:0; } }
+@media (max-width: 600px) { .portrait-stage-photo { width:100%; height:auto; min-height:0; aspect-ratio:4 / 5; } }
+</style>
+
 </head>
 <body>
 
+<!-- Cinematic portfolio construction sequence -->
+<div class="portfolio-build" id="portfolioBuild" aria-live="polite" aria-label="Portfolio animation intro">
+  <div class="build-grid" aria-hidden="true"></div>
+  <svg class="build-blueprint" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+    <path class="blueprint-path path-a" d="M70 160 H330 L420 250 H990 L1110 130 H1370"/>
+    <path class="blueprint-path path-b" d="M130 760 H420 L520 660 H1030 L1170 790 H1370"/>
+    <path class="blueprint-path path-c" d="M720 70 V210 L610 330 V570 L720 690 V830"/>
+    <path class="blueprint-path path-d" d="M70 450 H280 M1160 450 H1370"/>
+  </svg>
+  <div class="build-topline"><span class="build-brand">QA<span>_</span></span><span class="build-meta">PERSONAL PORTFOLIO / 2026</span></div>
+  <div class="build-center">
+    <span class="build-kicker" id="buildKicker">INITIALIZING DIGITAL IDENTITY</span>
+    <div class="build-name" aria-hidden="true"><span>QASIM</span><em>ALI.</em></div>
+    <div class="build-progress"><span id="buildProgressFill"></span></div>
+    <div class="build-status-row"><span id="buildStatus">DRAWING THE QA MARK</span><span id="buildPercent">00%</span></div>
+    <p class="build-note">A portfolio, assembled one detail at a time.</p>
+  </div>
+  <div class="build-foot"><span>DESIGN / DEVELOP / CREATE</span><span>SWAT · PAKISTAN</span></div>
+  <div class="build-arrows" id="buildArrows" aria-hidden="true"></div>
+  <button class="build-skip" id="skipBuild" type="button">SKIP INTRO <span aria-hidden="true">↗</span></button>
+</div>
+
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 <canvas id="three-bg"></canvas>
 <div class="cur" id="cur"><div class="cur-dot"></div></div>
 <div class="cur-ring" id="curRing"></div>
@@ -218,14 +386,17 @@ footer span{color:var(--gold)}
 </div>
 
 <nav id="navbar">
-  <div class="nav-logo">QA_</div>
-  <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <a class="nav-logo build-part" href="#hero" aria-label="Qasim Ali — Home">QA<span>_</span></a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li class="build-part"><a href="#hero">Home</a></li>
+    <li class="build-part"><a href="#about">About</a></li>
+    <li class="build-part"><a href="#skills">Skills</a></li>
+    <li class="build-part"><a href="#projects">Projects</a></li>
+    <li class="build-part"><a href="#education">Education</a></li>
+    <li class="build-part"><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -235,21 +406,43 @@ footer span{color:var(--gold)}
 </div>
 
 <section id="hero">
-  <div class="hero-inner">
-    <h1 class="big-name"><span class="n1">Qasim</span><span class="n2">Ali</span></h1>
-    <p class="hero-roles">Computer Scientist <span>·</span> AI Engineer <span>·</span> Full-Stack Developer</p>
-    <p class="hero-desc">Versatile results-driven Computer Scientist with a strong foundation in software development, artificial intelligence, and databases. Passionate about solving complex problems through algorithmic thinking.</p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn-gold">View Projects</a>
-      <a href="#contact" class="btn-ghost">Get In Touch</a>
+  <div class="hero-bg-name" aria-hidden="true">QASIM</div>
+  <div class="hero-shell">
+    <div class="hero-copy">
+      <div class="hero-chip build-part"><span class="dot"></span> PORTFOLIO / 2026</div>
+      <p class="hero-intro build-part">HELLO, I'M</p>
+      <h1 class="big-name build-part"><span class="n1">QASIM</span><span class="n2">ALI<span class="name-period">.</span></span></h1>
+      <p class="hero-roles build-part">COMPUTER SCIENCE <span>/</span> SOFTWARE <span>/</span> AI &amp; ML</p>
+      <p class="hero-desc build-part">I’m a Computer Science student at FAST NUCES Peshawar who enjoys turning ideas into useful digital products. I work across full-stack development, databases and machine learning — with a focus on clean experiences and practical problem-solving.</p>
+      <div class="hero-ctas build-part">
+        <a href="#projects" class="btn-gold">EXPLORE MY WORK <span aria-hidden="true">↗</span></a>
+        <a href="#contact" class="btn-ghost">LET'S CONNECT</a>
+      </div>
+      <div class="hero-stats build-part">
+        <div class="stat"><div class="stat-num">05+</div><div class="stat-lbl">Selected Projects</div></div>
+        <div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Technologies</div></div>
+        <div class="stat"><div class="stat-num">04</div><div class="stat-lbl">Credentials</div></div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">5+</div><div class="stat-lbl">Projects Built</div></div>
-      <div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Technologies</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">Certificates</div></div>
-      <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Languages</div></div>
+    <div class="hero-visual build-part" id="heroPortrait" aria-label="Portrait of Qasim Ali">
+      <div class="visual-index"><span>QA / PROFILE 001</span><span>PERSONAL IDENTITY</span></div>
+      <div class="portrait-stage portrait-stage-photo">
+        <div class="portrait-grid" aria-hidden="true"></div>
+        <div class="portrait-halo" aria-hidden="true"></div>
+        <img class="portrait-photo" src="portrait-qasim.webp" alt="Qasim Ali wearing a traditional dark waistcoat over white shalwar kameez, standing outdoors" fetchpriority="high" decoding="async">
+        <div class="portrait-photo-shade" aria-hidden="true"></div>
+        <div class="portrait-orbit orbit-one" aria-hidden="true"></div>
+        <div class="portrait-orbit orbit-two" aria-hidden="true"></div>
+        <span class="portrait-mark mark-top">BUILD<br>WITH INTENT</span>
+        <span class="portrait-mark mark-bottom">IDEAS → REALITY</span>
+        <span class="portrait-side">QASIM ALI · DEVELOPER</span>
+        <span class="portrait-corner corner-tl" aria-hidden="true"></span>
+        <span class="portrait-corner corner-br" aria-hidden="true"></span>
+      </div>
+      <div class="visual-caption"><span>01 — THE INTRODUCTION</span><span>SWAT / PAKISTAN</span></div>
     </div>
   </div>
+  <a class="scroll-cue" href="#about"><span>SCROLL TO EXPLORE</span><i aria-hidden="true"></i></a>
 </section>
 
 <section id="about">
@@ -264,7 +457,7 @@ footer span{color:var(--gold)}
       <div class="info-grid">
         <div class="info-box"><div class="info-lbl">Location</div><div class="info-val">Peshawar, PK</div></div>
         <div class="info-box"><div class="info-lbl">Phone</div><div class="info-val">+92 344623713</div></div>
-        <div class="info-box"><div class="info-lbl">Email</div><div class="info-val">qasimali.344623</div></div>
+        <div class="info-box"><div class="info-lbl">Email</div><div class="info-val">qasimali.344623@gmail.com</div></div>
         <div class="info-box"><div class="info-lbl">GitHub</div><div class="info-val">qasimali72</div></div>
       </div>
       <div class="lang-row">
@@ -338,32 +531,39 @@ footer span{color:var(--gold)}
 <section id="projects">
   <div class="projects-inner">
     <div class="section-head reveal">
-      <span class="sec-tag">// 03 — Projects</span>
-      <h2 class="sec-h2">What I've <span style="background:linear-gradient(135deg,var(--violet),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Built</span></h2>
+      <span class="sec-tag">// 03 — Selected Work</span>
+      <h2 class="sec-h2">WORK THAT <span class="work-accent">SPEAKS.</span></h2>
       <div class="sec-rule"></div>
+      <p class="work-intro">A selection of systems, experiments and digital products I’ve worked on.</p>
+    </div>
+    <div class="project-filters" role="group" aria-label="Filter projects">
+      <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">ALL WORK</button>
+      <button class="filter-btn" type="button" data-filter="software" aria-pressed="false">SOFTWARE</button>
+      <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">AI / ML</button>
+      <button class="filter-btn" type="button" data-filter="systems" aria-pressed="false">SYSTEMS</button>
     </div>
     <div class="proj-grid">
-      <div class="pcard reveal"><div class="pnum">01</div><div class="picon">🚗</div>
+      <div class="pcard reveal" data-category="systems"><div class="project-visual pv-parking" aria-hidden="true"><span class="pv-kicker">SYSTEM / 01</span><strong>PARKING<br>MANAGER</strong><i></i></div><div class="pnum">01</div><div class="picon">🚗</div>
         <div class="ptitle">Car Parking Management System</div>
         <div class="pdesc">Comprehensive parking system with file handling, OOP design — classes representing vehicle types, customer details, and available slots with full CRUD operations.</div>
         <div class="ptech"><span class="tbadge">C++</span><span class="tbadge">OOP</span><span class="tbadge">File Handling</span></div>
       </div>
-      <div class="pcard reveal" style="transition-delay:0.1s"><div class="pnum">02</div><div class="picon">🎮</div>
+      <div class="pcard reveal" data-category="systems" style="transition-delay:0.1s"><div class="project-visual pv-tetris" aria-hidden="true"><span class="pv-kicker">LOW LEVEL / 02</span><strong>STACK.<br>ROTATE.<br>REPEAT.</strong><i></i></div><div class="pnum">02</div><div class="picon">🎮</div>
         <div class="ptitle">Tetris Game in COAL (NASM)</div>
         <div class="pdesc">Fully functional Tetris built in NASM assembly targeting 16-bit architecture. Demonstrates mastery in low-level programming, memory management, and graphical representation.</div>
         <div class="ptech"><span class="tbadge">NASM</span><span class="tbadge">16-bit Arch</span><span class="tbadge">Assembly</span><span class="tbadge">DOSBox</span></div>
       </div>
-      <div class="pcard reveal" style="transition-delay:0.2s"><div class="pnum">03</div><div class="picon">🍽️</div>
+      <div class="pcard reveal" data-category="software" style="transition-delay:0.2s"><div class="project-visual pv-restaurant" aria-hidden="true"><span class="pv-kicker">WEB APP / 03</span><strong>ORDER<br>MADE<br>SIMPLE.</strong><i></i></div><div class="pnum">03</div><div class="picon">🍽️</div>
         <div class="ptitle">Restaurant Management System</div>
         <div class="pdesc">Secure web-based restaurant system with encrypted login, role-based access, menu management, order processing, and full database integration.</div>
         <div class="ptech"><span class="tbadge">PHP</span><span class="tbadge">HTML/CSS</span><span class="tbadge">MySQL</span><span class="tbadge">Security</span></div>
       </div>
-      <div class="pcard reveal" style="transition-delay:0.1s"><div class="pnum">04</div><div class="picon">📈</div>
+      <div class="pcard reveal" data-category="ai" style="transition-delay:0.1s"><div class="project-visual pv-stock" aria-hidden="true"><span class="pv-kicker">MACHINE LEARNING / 04</span><strong>FIND THE<br> SIGNAL.</strong><i></i></div><div class="pnum">04</div><div class="picon">📈</div>
         <div class="ptitle">Stock Price Movement Predictor</div>
         <div class="pdesc">Advanced ML system using RSI, MACD, Bollinger Bands with LSTM deep learning for time-series forecasting of AAL stock prices.</div>
         <div class="ptech"><span class="tbadge">Python</span><span class="tbadge">TensorFlow</span><span class="tbadge">LSTM</span><span class="tbadge">Pandas</span><span class="tbadge">Scikit-learn</span></div>
       </div>
-      <div class="pcard reveal" style="transition-delay:0.2s"><div class="pnum">05</div><div class="picon">💼</div>
+      <div class="pcard reveal" data-category="software" style="transition-delay:0.2s"><div class="project-visual pv-pos" aria-hidden="true"><span class="pv-kicker">DESKTOP / 05</span><strong>FAST<br>POS.</strong><i></i></div><div class="pnum">05</div><div class="picon">💼</div>
         <div class="ptitle">FastPOS — Point of Sale System</div>
         <div class="pdesc">Production-grade POS desktop app running live in a retail business. Built sales engine, expense tracking, inventory, thermal receipt printing — fully offline.</div>
         <div class="ptech"><span class="tbadge">Electron.js</span><span class="tbadge">ES2022</span><span class="tbadge">IndexedDB</span><span class="tbadge">HTML5/CSS3</span></div>
@@ -414,8 +614,8 @@ footer span{color:var(--gold)}
       <div class="clinks">
         <a href="mailto:qasimali.344623@gmail.com" class="clink"><div class="cli">📧</div><div><div class="cll">Email</div><div class="clv">qasimali.344623@gmail.com</div></div></a>
         <a href="tel:+92344623713" class="clink"><div class="cli">📱</div><div><div class="cll">Phone</div><div class="clv">+92 344623713</div></div></a>
-        <a href="https://github.com/qasimali72" target="_blank" class="clink"><div class="cli">💻</div><div><div class="cll">GitHub</div><div class="clv">github.com/qasimali72</div></div></a>
-        <a href="https://www.linkedin.com/in/in-qasimali72/" target="_blank" class="clink"><div class="cli">🔗</div><div><div class="cll">LinkedIn</div><div class="clv">linkedin.com/in/in-qasimali72</div></div></a>
+        <a href="https://github.com/qasimali72" target="_blank" rel="noopener noreferrer" class="clink"><div class="cli">💻</div><div><div class="cll">GitHub</div><div class="clv">github.com/qasimali72</div></div></a>
+        <a href="https://www.linkedin.com/in/in-qasimali72/" target="_blank" rel="noopener noreferrer" class="clink"><div class="cli">🔗</div><div><div class="cll">LinkedIn</div><div class="clv">linkedin.com/in/in-qasimali72</div></div></a>
       </div>
     </div>
     <div class="cform reveal">
@@ -430,7 +630,7 @@ footer span{color:var(--gold)}
 </section>
 
 <footer>
-  <p>Crafted with ⚡ by <span>Qasim Ali</span> &nbsp;·&nbsp; © 2025 &nbsp;·&nbsp; Peshawar, Pakistan</p>
+  <p>Crafted with ⚡ by <span>Qasim Ali</span> &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; Peshawar, Pakistan</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -438,7 +638,9 @@ footer span{color:var(--gold)}
 <script>
 // ============================================================
 //  FULL-PAGE 3D SCROLL PARALLAX BACKGROUND
+//  Optional: the rest of the portfolio stays interactive if Three.js is unavailable.
 // ============================================================
+if (window.THREE) {
 (function() {
   const canvas = document.getElementById('three-bg');
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -451,10 +653,10 @@ footer span{color:var(--gold)}
   camera.position.set(0, 0, 30);
 
   // Materials
-  const mGold   = new THREE.MeshBasicMaterial({ color:0xf0c040, wireframe:true, transparent:true, opacity:0.20 });
-  const mRose   = new THREE.MeshBasicMaterial({ color:0xff4d6d, wireframe:true, transparent:true, opacity:0.16 });
-  const mElec   = new THREE.MeshBasicMaterial({ color:0x00e5ff, wireframe:true, transparent:true, opacity:0.14 });
-  const mViolet = new THREE.MeshBasicMaterial({ color:0x9b5de5, wireframe:true, transparent:true, opacity:0.15 });
+  const mGold   = new THREE.MeshBasicMaterial({ color:0xff244b, wireframe:true, transparent:true, opacity:0.20 });
+  const mRose   = new THREE.MeshBasicMaterial({ color:0xff244b, wireframe:true, transparent:true, opacity:0.16 });
+  const mElec   = new THREE.MeshBasicMaterial({ color:0x18c9ff, wireframe:true, transparent:true, opacity:0.14 });
+  const mViolet = new THREE.MeshBasicMaterial({ color:0x4d6dff, wireframe:true, transparent:true, opacity:0.15 });
   const mWhite  = new THREE.MeshBasicMaterial({ color:0xf8f4ee, wireframe:true, transparent:true, opacity:0.07 });
 
   const WORLD_H = 220;
@@ -527,17 +729,17 @@ footer span{color:var(--gold)}
     const mat = new THREE.PointsMaterial({ color, size: 0.13, transparent: true, opacity });
     scene.add(new THREE.Points(geo, mat));
   }
-  makeParticles(700, 0xf0c040, 0.55, 75,  -8);
-  makeParticles(350, 0x00e5ff, 0.35, 65, -12);
-  makeParticles(200, 0xff4d6d, 0.25, 60, -15);
-  makeParticles(200, 0x9b5de5, 0.28, 70, -10);
+  makeParticles(700, 0xff244b, 0.48, 75,  -8);
+  makeParticles(350, 0x18c9ff, 0.38, 65, -12);
+  makeParticles(200, 0xff244b, 0.25, 60, -15);
+  makeParticles(200, 0x4d6dff, 0.25, 70, -10);
 
   // === Lights ===
   scene.add(new THREE.AmbientLight(0x112244, 2));
-  const pl1 = new THREE.PointLight(0xf0c040, 2.5, 80);
+  const pl1 = new THREE.PointLight(0xff244b, 2.2, 80);
   pl1.position.set(10, 5, 15);
   scene.add(pl1);
-  const pl2 = new THREE.PointLight(0xff4d6d, 1.8, 70);
+  const pl2 = new THREE.PointLight(0x18c9ff, 1.7, 70);
   pl2.position.set(-10, -10, 10);
   scene.add(pl2);
 
@@ -592,6 +794,7 @@ footer span{color:var(--gold)}
   }
   animate();
 })();
+}
 
 // ============================================================
 //  CURSOR
@@ -601,7 +804,8 @@ const ring = document.getElementById('curRing');
 let mx2 = 0, my2 = 0, rx = 0, ry = 0;
 document.addEventListener('mousemove', e => {
   mx2 = e.clientX; my2 = e.clientY;
-  cur.style.cssText = `left:${mx2-5}px;top:${my2-5}px`;
+  cur.style.cssText = `left:${mx2-5}px;top:${my2-5}px;opacity:1`;
+  ring.style.opacity = '1';
 });
 (function tick() {
   rx += (mx2 - rx) * 0.13; ry += (my2 - ry) * 0.13;
@@ -609,8 +813,8 @@ document.addEventListener('mousemove', e => {
   requestAnimationFrame(tick);
 })();
 document.querySelectorAll('a,button,.pcard,.ccard,.clink').forEach(el => {
-  el.addEventListener('mouseenter', () => { ring.style.transform='scale(1.6)'; ring.style.borderColor='rgba(240,192,64,0.9)'; });
-  el.addEventListener('mouseleave', () => { ring.style.transform='scale(1)'; ring.style.borderColor='rgba(240,192,64,0.6)'; });
+  el.addEventListener('mouseenter', () => { ring.style.transform='scale(1.6)'; ring.style.borderColor='rgba(255,36,75,0.9)'; });
+  el.addEventListener('mouseleave', () => { ring.style.transform='scale(1)'; ring.style.borderColor='rgba(255,36,75,0.6)'; });
 });
 
 // ============================================================
@@ -730,5 +934,238 @@ function handleSubmit() {
   });
 }
 </script>
+
+<script>
+// Responsive navigation, manual project filters and scroll progress.
+(() => {
+  const nav = document.getElementById('navbar');
+  const toggle = document.getElementById('navToggle');
+  const progress = document.getElementById('scrollProgress');
+  const links = document.querySelectorAll('#navLinks a');
+
+  if (nav && toggle) {
+    toggle.addEventListener('click', () => {
+      const opened = nav.classList.toggle('menu-open');
+      toggle.setAttribute('aria-expanded', String(opened));
+      toggle.setAttribute('aria-label', opened ? 'Close navigation' : 'Open navigation');
+    });
+    links.forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('menu-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation');
+    }));
+  }
+
+  const updateProgress = () => {
+    if (!progress) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = max > 0 ? window.scrollY / max : 0;
+    progress.style.transform = `scaleX(${Math.min(1, Math.max(0, ratio))})`;
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  updateProgress();
+
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.pcard[data-category]');
+  filterButtons.forEach(button => button.addEventListener('click', () => {
+    const filter = button.dataset.filter || 'all';
+    filterButtons.forEach(item => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+    cards.forEach(card => {
+      const show = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('is-hidden', !show);
+      card.setAttribute('aria-hidden', String(!show));
+    });
+  }));
+})();
+</script>
+
+
+<script id="twenty-arrow-trail">
+// Twenty cursor arrows follow the pointer one after another, like the motion in the Reel.
+(() => {
+  if (window.matchMedia('(hover: none), (pointer: coarse), (prefers-reduced-motion: reduce)').matches) return;
+  const total = 20;
+  const arrows = [];
+  const points = Array.from({length: total}, () => ({x:-120, y:-120}));
+  let target = {x:-120, y:-120};
+  let lastX = -120, lastY = -120, direction = 0;
+  let startedAt = 0, lastMoveAt = 0;
+  for (let i = 0; i < total; i++) {
+    const arrow = document.createElement('span');
+    arrow.className = 'cursor-arrow';
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.style.setProperty('--arrow-color', i % 2 ? '#18c9ff' : '#ff244b');
+    arrow.innerHTML = '<svg viewBox="0 0 24 28" aria-hidden="true"><path d="M2 1.5 21.5 17.7 12.8 18.8 17.2 26.2 13.9 27.8 9.8 20.1 4.7 26.5Z" fill="currentColor" stroke="rgba(255,255,255,.78)" stroke-width=".65" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(arrow);
+    arrows.push(arrow);
+  }
+  document.addEventListener('mousemove', event => {
+    target = {x:event.clientX, y:event.clientY};
+    const dx = target.x - lastX, dy = target.y - lastY;
+    if (Math.abs(dx) + Math.abs(dy) > 1.5) direction = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+    lastX = target.x; lastY = target.y;
+    const now = performance.now();
+    if (!startedAt) startedAt = now;
+    lastMoveAt = now;
+  }, {passive:true});
+  const frame = now => {
+    const idleFade = startedAt ? Math.max(0, 1 - (now - lastMoveAt) / 2200) : 0;
+    for (let i = 0; i < total; i++) {
+      const leader = i === 0 ? target : points[i - 1];
+      const ease = i === 0 ? .48 : .25;
+      points[i].x += (leader.x - points[i].x) * ease;
+      points[i].y += (leader.y - points[i].y) * ease;
+      const reveal = startedAt ? Math.min(1, Math.max(0, (now - startedAt - i * 48) / 130)) : 0;
+      const scale = 1 - i * .012;
+      arrows[i].style.opacity = (reveal * idleFade * (1 - i * .018)).toFixed(3);
+      arrows[i].style.transform = `translate3d(${points[i].x - 3}px,${points[i].y - 3}px,0) rotate(${direction}deg) scale(${scale})`;
+    }
+    requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+})();
+</script>
+
+
+<script id="portfolio-construction-sequence">
+(() => {
+  const overlay = document.getElementById('portfolioBuild');
+  const host = document.getElementById('buildArrows');
+  const skip = document.getElementById('skipBuild');
+  const progress = document.getElementById('buildProgressFill');
+  const status = document.getElementById('buildStatus');
+  const percent = document.getElementById('buildPercent');
+  const kicker = document.getElementById('buildKicker');
+  const parts = Array.from(document.querySelectorAll('.build-part'));
+  if (!overlay || !host) { parts.forEach(el => el.classList.add('is-built')); return; }
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const touch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  let stopped = false;
+  const total = 20;
+  const arrows = [];
+  const trail = Array.from({length:total}, () => ({x:innerWidth*.5, y:innerHeight*.5}));
+  let leader = {x:innerWidth*.5, y:innerHeight*.5};
+  let direction = 0;
+
+  const arrowMarkup = '<svg viewBox="0 0 24 28" aria-hidden="true"><path d="M2 1.5 21.5 17.7 12.8 18.8 17.2 26.2 13.9 27.8 9.8 20.1 4.7 26.5Z" fill="currentColor" stroke="rgba(255,255,255,.8)" stroke-width=".65" stroke-linejoin="round"/></svg>';
+  for (let i=0; i<total; i++) {
+    const el = document.createElement('span');
+    el.className = 'build-arrow';
+    el.style.setProperty('--build-arrow-color', i%2 ? '#18c9ff' : '#ff244b');
+    el.innerHTML = arrowMarkup;
+    host.appendChild(el);
+    arrows.push(el);
+  }
+  function renderArrows() {
+    for (let i=0; i<total; i++) {
+      const prev = i===0 ? leader : trail[i-1];
+      const follow = i===0 ? .36 : .26;
+      trail[i].x += (prev.x-trail[i].x)*follow;
+      trail[i].y += (prev.y-trail[i].y)*follow;
+      const visible = stopped ? 0 : Math.max(0,1-i*.027);
+      arrows[i].style.opacity = String(visible);
+      arrows[i].style.transform = `translate3d(${trail[i].x-4}px,${trail[i].y-4}px,0) rotate(${direction}deg) scale(${1-i*.012})`;
+    }
+    if (!stopped) requestAnimationFrame(renderArrows);
+  }
+  requestAnimationFrame(renderArrows);
+
+  const sequence = [
+    ['.nav-logo','IDENTITY / QA MARK','BRAND'],
+    ['#navLinks li:nth-child(1)','NAVIGATION / HOME','HOME'],
+    ['#navLinks li:nth-child(2)','NAVIGATION / ABOUT','ABOUT'],
+    ['#navLinks li:nth-child(3)','NAVIGATION / SKILLS','SKILLS'],
+    ['#navLinks li:nth-child(4)','NAVIGATION / PROJECTS','PROJECTS'],
+    ['#navLinks li:nth-child(5)','NAVIGATION / EDUCATION','EDUCATION'],
+    ['#navLinks li:nth-child(6)','NAVIGATION / CONTACT','CONTACT'],
+    ['.hero-chip','PORTFOLIO / STATUS','INTRO'],
+    ['.hero-intro','INTRODUCTION / HELLO','HELLO'],
+    ['.big-name','IDENTITY / QASIM ALI','NAME'],
+    ['#heroPortrait','PROFILE / YOUR PORTRAIT','PORTRAIT'],
+    ['.hero-roles','DISCIPLINES / SOFTWARE + AI','SPECIALTIES'],
+    ['.hero-desc','PROFILE / OVERVIEW','ABOUT'],
+    ['.hero-ctas','INTERACTION / EXPLORE + CONNECT','ACTIONS'],
+    ['.hero-stats','PROFILE / QUICK FACTS','COMPLETE']
+  ];
+  const sleep = ms => new Promise(resolve => setTimeout(resolve,ms));
+  const clamp = (v,min,max) => Math.max(min,Math.min(max,v));
+  function targetFor(el) {
+    const r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return null;
+    return {x:clamp(r.left+r.width*.5,18,innerWidth-18), y:clamp(r.top+r.height*.5,18,innerHeight-18)};
+  }
+  function travelTo(point, duration=390) {
+    if (!point) return Promise.resolve();
+    const start = {x:leader.x,y:leader.y};
+    const dx=point.x-start.x, dy=point.y-start.y;
+    if (Math.abs(dx)+Math.abs(dy)>1) direction=Math.atan2(dy,dx)*180/Math.PI+90;
+    const began = performance.now();
+    return new Promise(resolve => {
+      const step = now => {
+        const t=clamp((now-began)/duration,0,1);
+        const eased=1-Math.pow(1-t,3);
+        leader.x=start.x+dx*eased;
+        leader.y=start.y+dy*eased;
+        if(t<1) requestAnimationFrame(step); else resolve();
+      };
+      requestAnimationFrame(step);
+    });
+  }
+  function updateStep(i,label) {
+    const n=Math.round((i+1)/sequence.length*100);
+    if(status) status.textContent=label;
+    if(percent) percent.textContent=String(n).padStart(2,'0')+'%';
+    if(progress) progress.style.width=n+'%';
+    if(kicker) kicker.textContent='ASSEMBLING / '+String(i+1).padStart(2,'0')+' OF '+String(sequence.length).padStart(2,'0');
+  }
+  function finish() {
+    if (overlay.classList.contains('complete')) return;
+    parts.forEach(el => el.classList.add('is-built'));
+    stopped=true;
+    overlay.classList.add('complete');
+    document.documentElement.classList.add('portfolio-ready');
+    setTimeout(() => { host.innerHTML=''; }, 1000);
+  }
+  if (skip) skip.addEventListener('click', finish);
+  if (reduced) { finish(); return; }
+  // On phones the nav menu is collapsed; mark those hidden links ready without sending arrows off-screen.
+  if (touch) document.querySelectorAll('#navLinks .build-part').forEach(el => el.classList.add('is-built'));
+  const startPoint = targetFor(document.querySelector('.nav-logo')) || {x:40,y:40};
+  leader={...startPoint};
+  trail.forEach(p => {p.x=startPoint.x;p.y=startPoint.y;});
+
+  (async () => {
+    for(let i=0;i<sequence.length;i++) {
+      if(overlay.classList.contains('complete')) break;
+      const [selector,label] = sequence[i];
+      const el=document.querySelector(selector);
+      if(!el) continue;
+      const point=targetFor(el);
+      if(!point) {el.classList.add('is-built'); continue;}
+      if(touch && selector.startsWith('#navLinks')) {el.classList.add('is-built');continue;}
+      updateStep(i,label);
+      await travelTo(point, i<7?260:390);
+      el.classList.add('is-built');
+      await sleep(i<7?65:115);
+    }
+    if(!overlay.classList.contains('complete')) {
+      if(status) status.textContent='YOUR PORTFOLIO IS READY';
+      if(percent) percent.textContent='100%';
+      if(progress) progress.style.width='100%';
+      await sleep(650);
+      finish();
+    }
+  })().catch(() => finish());
+  // Safety fallback: never leave the visitor behind an intro screen.
+  setTimeout(finish,9000);
+})();
+</script>
+
 </body>
 </html>
