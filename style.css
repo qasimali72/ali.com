@@ -255,4 +255,3 @@ footer span { color:#ff536f; }
 
 /* Keep the custom pointer hidden until the visitor moves the mouse. */
 .cur, .cur-ring { opacity:0; transition:opacity .18s ease; }
-
